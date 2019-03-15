@@ -9,9 +9,15 @@ namespace LibraryAppServer
     {
         public string Title { get; set; }
         public string Description { get; set; }
-        public int Rating { get; set; }
+        public double Rating { get; set; }
         public int Stock { get; set; }
 
-        public Book
+        public Book(string title,string desctiption, double rating,int stock)
+        {
+            this.Title = title;
+            this.Description = desctiption;
+            this.Rating = rating;
+            this.Stock = stock;
+        }
     }
 }

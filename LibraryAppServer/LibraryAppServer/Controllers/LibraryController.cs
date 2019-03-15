@@ -10,11 +10,36 @@ namespace LibraryAppServer.Controllers
     [ApiController]
     public class LibraryController : ControllerBase
     {
-        // test - hello world
-        [HttpGet("test")]
-        public string RunTestApi()
+        // in memory storage until swap to cloud storage
+        private static List<Book> books = new List<Book>()
         {
-            return "Hello World";                   // 200 OK
+                new Book("Book A","description aaaaaa",4.7,24),
+                new Book("Book B","description bbbbbb",3.5,45),
+                new Book("Book C","description cccccc",4.9,12),
+                new Book("Book D","description dddddd",2.8,37),
+        };
+
+        
+        [HttpGet("all")]
+        public IEnumerable<Book> GetAllBooks()
+        {
+            return books;                  
+        }
+
+        [HttpGet("title/{title:aplha")]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(200)]
+        public ActionResult<Book> GetBookByTitle(string title)
+        {
+            var match = books.Where(b => (b.Title == title.ToUpper()));
+            if (match.Count() != 0)
+            {
+                return Ok(match);
+            }
+            else
+            {
+                return NotFound();
+            }
         }
     }
 }
