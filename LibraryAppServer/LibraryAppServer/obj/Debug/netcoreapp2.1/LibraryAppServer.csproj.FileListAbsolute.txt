@@ -1,0 +1,14 @@
+C:\Users\iDugin\source\repos\LibraryAppServer\LibraryAppServer\bin\Debug\netcoreapp2.1\LibraryAppServer.deps.json
+C:\Users\iDugin\source\repos\LibraryAppServer\LibraryAppServer\bin\Debug\netcoreapp2.1\LibraryAppServer.runtimeconfig.json
+C:\Users\iDugin\source\repos\LibraryAppServer\LibraryAppServer\bin\Debug\netcoreapp2.1\LibraryAppServer.runtimeconfig.dev.json
+C:\Users\iDugin\source\repos\LibraryAppServer\LibraryAppServer\bin\Debug\netcoreapp2.1\LibraryAppServer.dll
+C:\Users\iDugin\source\repos\LibraryAppServer\LibraryAppServer\obj\Debug\netcoreapp2.1\LibraryAppServer.csprojAssemblyReference.cache
+C:\Users\iDugin\source\repos\LibraryAppServer\LibraryAppServer\obj\Debug\netcoreapp2.1\LibraryAppServer.csproj.CoreCompileInputs.cache
+C:\Users\iDugin\source\repos\LibraryAppServer\LibraryAppServer\obj\Debug\netcoreapp2.1\LibraryAppServer.RazorAssemblyInfo.cache
+C:\Users\iDugin\source\repos\LibraryAppServer\LibraryAppServer\obj\Debug\netcoreapp2.1\LibraryAppServer.RazorAssemblyInfo.cs
+C:\Users\iDugin\source\repos\LibraryAppServer\LibraryAppServer\obj\Debug\netcoreapp2.1\LibraryAppServer.AssemblyInfoInputs.cache
+C:\Users\iDugin\source\repos\LibraryAppServer\LibraryAppServer\obj\Debug\netcoreapp2.1\LibraryAppServer.AssemblyInfo.cs
+C:\Users\iDugin\source\repos\LibraryAppServer\LibraryAppServer\obj\Debug\netcoreapp2.1\LibraryAppServer.RazorTargetAssemblyInfo.cache
+C:\Users\iDugin\source\repos\LibraryAppServer\LibraryAppServer\bin\Debug\netcoreapp2.1\LibraryAppServer.pdb
+C:\Users\iDugin\source\repos\LibraryAppServer\LibraryAppServer\obj\Debug\netcoreapp2.1\LibraryAppServer.dll
+C:\Users\iDugin\source\repos\LibraryAppServer\LibraryAppServer\obj\Debug\netcoreapp2.1\LibraryAppServer.pdb
