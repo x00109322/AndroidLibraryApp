@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace LibraryAppServer.Controllers
 {
     [Produces("application/json")]
-    [Route("api/library")]
+    [Route("api/book")]
     [ApiController]
     public class LibraryController : ControllerBase
     {
@@ -30,27 +30,41 @@ namespace LibraryAppServer.Controllers
 
         // get all matching books with matching title - should only be one
         // alpha not working
+
+        // GET api/books/title/
         [HttpGet("title/{title}")]
         [ProducesResponseType(404)]
         [ProducesResponseType(200)]
-        public ActionResult<IEnumerable<Book>> GetBookByTitle(string title)
+        public IActionResult GetBookByTitle(string title)
         {
-            // put all to upper case
+            //Linq query to find books by title, put all to upper case
             var match = books.Where(p => (p.Title == title));
-            if (match.Count() != 0)
-            {
-                return Ok(match);
-            }
-            else
+            if (match == null)
             {
                 return NotFound();
             }
+            return Ok(match);
         }
 
+        //GET api/books/rating/
         [HttpGet("booksOrderedByRating")]
         public IEnumerable<Book> GetBooksInOrderOfRating()
         {
             return books.OrderByDescending(book => book.Rating);   
+        }
+
+
+        //GET api/books/genre/
+        [HttpGet("genre/{genre}")]
+        public IActionResult GetBookByGenre(String genre)
+        {
+            // LINQ query, find matching entries for genre
+            var entries = books.Where(r => r.Genre.ToUpper() == genre.ToUpper());
+            if (entries == null)
+            {
+                return NotFound();
+            }
+            return Ok(entries);
         }
 
         [HttpGet("booksOrderedByTitle")]
@@ -65,6 +79,7 @@ namespace LibraryAppServer.Controllers
             return books.OrderBy(book => book.Author);
         }
 
+        //GET api/books/author/
         [HttpGet("author/{author}")]
         [ProducesResponseType(404)]
         [ProducesResponseType(200)]
@@ -72,14 +87,12 @@ namespace LibraryAppServer.Controllers
         {
             // put all to upper case
             var matches = books.Where(p => (p.Author == author));
-            if (matches.Count() != 0)
-            {
-                return Ok(matches.OrderBy(book => book.Title));
-            }
-            else
+            if (matches == null)
             {
                 return NotFound();
             }
+             return Ok(matches.OrderBy(book => book.Title));
+            
         }
     }
 }
