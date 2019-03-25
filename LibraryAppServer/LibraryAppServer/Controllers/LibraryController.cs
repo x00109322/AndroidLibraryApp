@@ -14,18 +14,18 @@ namespace LibraryAppServer.Controllers
         // in memory storage until swap to cloud storage
         private static List<Book> books = new List<Book>()
         {
-            new Book("Book A","Joe","description aaaaaa",4.7,24),
-            new Book("Book B","Mary","description bbbbbb",3.5,45),
-            new Book("Book C","Bob","description cccccc",4.9,12),
-            new Book("Book D","Anne","description dddddd",2.8,37),
-            new Book("Book AA","Anne","description double",3.1,9)
+            new Book("Book A","Joe","description aaaaaa",4.7,"Action",24),
+            new Book("Book B","Mary","description bbbbbb",3.5,"Horror",45),
+            new Book("Book C","Bob","description cccccc",4.9,"Autobiography",12),
+            new Book("Book D","Anne","description dddddd",2.8,"Health and Wellbeing",37),
+            new Book("Book AA","Anne","description double",3.1,"Action",9)
         };
 
         
         [HttpGet("all")]
         public IEnumerable<Book> GetAllBooks()
         {
-            return books;                  
+            return books.OrderByDescending(book => book.ISBN);                  
         }
 
         // get all matching books with matching title - should only be one
