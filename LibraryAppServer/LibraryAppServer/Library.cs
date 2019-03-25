@@ -20,14 +20,8 @@ namespace LibraryAppServer
         public double Rating { get; set; }
         public int Stock { get; set; }
 
-        public Book(string title,string author,string desctiption, double rating,string genre, int stock)
-        {
-            this.Title = title;
-            this.Author = author;
-            this.Description = desctiption;
-            this.Rating = rating;
-            this.Genre = genre;
-            this.Stock = stock;
-        }
+        
+
+        
     }
 }
