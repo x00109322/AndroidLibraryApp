@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAxrCZX938n0uN/9lS21CNzwAAAAACAAAAAAAQZgAAAAEAACAAAABZC9M/bvIFh8AUO/wE/lzVVyAJcD9iD13fUhBwW+3I1wAAAAAOgAAAAAIAACAAAAB/u5ufBW+kwd269Za2kgot0NhJskpq6mqL9TWQgoIKDYAAAAAyNaUn6wjtKiodC1tKMRXVE6BdCxCvHIzb/HmrOth7K/8UVkKEJun0Fxnt1QmS55OlSf60YBk5FSIoDB20f/SLZg0dF3mZsvmfvzmkaLOhrAPu1EjY91U+yoFZnQE4dkc6gKY13gdhy6YRFhmO/QFDxo1Pi2bzyp5Lx1vwYuRhzkAAAAC39Mi6pOMQ3Si9maPx5R2aYBiki/Av37VnJWURGg+Z5qLqVRZuFlwDvv9/wM7UC7OtmfIl/9wZ3lUbI9Q6FHn2</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="BooksContext">
+      <Value>Data Source=tcp:libraryappserverdb.database.windows.net,1433%3bInitial Catalog=LibraryAndroidServer_db%3bUser Id=user%40libraryappserverdb%3bPassword=Password123</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="BooksContext">
+      <Value>Data Source=tcp:libraryappserverdb.database.windows.net,1433%3bInitial Catalog=LibraryAndroidServer_db%3bUser Id=user%40libraryappserverdb%3bPassword=Password123</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

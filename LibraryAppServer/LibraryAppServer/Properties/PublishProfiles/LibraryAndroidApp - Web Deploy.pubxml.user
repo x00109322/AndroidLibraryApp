@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAxrCZX938n0uN/9lS21CNzwAAAAACAAAAAAAQZgAAAAEAACAAAAAcMZb+UKJOxH8MsL4C7xdaQy++p3/8CWaC/YzNGERrbgAAAAAOgAAAAAIAACAAAACH2q4HygjaS+oBB77hc5KcrR6moPno26/bK24iaMelIIAAAACly78Z847miDKu0kT5RI+xk5iGWypznFO+5Goc/gQwHhdI6Ec3JBnfECNV1XVEnEMvqm9QV3A3kyxxHG12mwNYlgbdl0XQI3hVgqzs5r+vSHp/BdbJW8ZG4+5ShRYEA7l5nWAWbpf6inJlTCR5UNP7lYI4+Dsa8EXIH/adiye0u0AAAAAC6JJPVZeoknGYjY802EgTXG7Mj8FMH8/zacwsXVrM3nDouoDvL43sJ07rhvqV1uTJsabKgWjP4cS6Z0Ewv23G</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="BooksContext">
+      <Value>Server=%28localdb%29\mssqllocaldb%3bDatabase=BooksContext-59916427-ec7a-43bd-973f-e2effe0ed843%3bTrusted_Connection=True%3bMultipleActiveResultSets=true</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="BooksContext">
+      <Value>
+      </Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

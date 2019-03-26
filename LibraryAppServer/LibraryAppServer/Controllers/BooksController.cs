@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using LibraryAppServer.Data;
+using Microsoft.EntityFrameworkCore;
+using LibraryAppServer;
 
 namespace LibraryAppServer.Controllers
 {
     [Produces("application/json")]
-    [Route("api/book")]
+    [Route("api/books")]
     [ApiController]
     public class LibraryController : ControllerBase
     {
@@ -19,14 +21,14 @@ namespace LibraryAppServer.Controllers
             _context = context;
         }
 
-        // GET api/movies/all
+        // GET api/books/all
         [HttpGet("all")]
         public IEnumerable<Book> GetAllBooks()
         {
-            var entries = _context.Books.OrderBy(book => book.ISBN);
+            var entries = _context.Book.OrderBy(book => book.ISBN);
             return entries;
         }
-        
+
 
         // get all matching books with matching title - should only be one
 
@@ -37,7 +39,7 @@ namespace LibraryAppServer.Controllers
         public IActionResult GetBookByTitle(string title)
         {
             //Linq query to find books by title, put all to upper case
-            var match = _context.Books.FirstOrDefault(p => (p.Title.ToUpper() == title.ToUpper()));
+            var match = _context.Book.FirstOrDefault(p => (p.Title.ToUpper() == title.ToUpper()));
             if (match == null)
             {
                 return NotFound();
@@ -49,7 +51,7 @@ namespace LibraryAppServer.Controllers
         [HttpGet("booksOrderedByRating")]
         public IEnumerable<Book> GetBooksInOrderOfRating()
         {
-            return _context.Books.OrderByDescending(book => book.Rating);   
+            return _context.Book.OrderByDescending(book => book.Rating);
         }
 
 
@@ -58,7 +60,7 @@ namespace LibraryAppServer.Controllers
         public IActionResult GetBookByGenre(String genre)
         {
             // LINQ query, find matching entries for genre
-            var entries = _context.Books.Where(r => r.Genre.ToUpper() == genre.ToUpper());
+            var entries = _context.Book.Where(r => r.Genre.ToUpper() == genre.ToUpper());
             if (entries == null)
             {
                 return NotFound();
@@ -69,13 +71,13 @@ namespace LibraryAppServer.Controllers
         [HttpGet("booksOrderedByTitle")]
         public IEnumerable<Book> GetBooksInOrderOfTitle()
         {
-            return _context.Books.OrderBy(book => book.Title);
+            return _context.Book.OrderBy(book => book.Title);
         }
 
         [HttpGet("booksOrderedByAuthor")]
         public IEnumerable<Book> GetBooksInOrderOfAuthor()
         {
-            return _context.Books.OrderBy(book => book.Author);
+            return _context.Book.OrderBy(book => book.Author);
         }
 
         //GET api/books/author/
@@ -85,21 +87,21 @@ namespace LibraryAppServer.Controllers
         public ActionResult<IEnumerable<Book>> GetAuthor(string author)
         {
             // put all to upper case
-            var matches = _context.Books.Where(p => (p.Author == author));
+            var matches = _context.Book.Where(p => (p.Author == author));
             if (matches == null)
             {
                 return NotFound();
             }
-             return Ok(matches.OrderBy(book => book.Title));
-            
+            return Ok(matches.OrderBy(book => book.Title));
+
         }
-        
+
 
         [HttpGet("rating/{rating:int}")]
         public IActionResult GetMovieByRating(int rating)
         {
             // LINQ query, find matching entries for num of stars
-            var entries = _context.Books.Where(r => r.Rating == rating);
+            var entries = _context.Book.Where(r => r.Rating == rating);
 
             if (entries == null)
             {
@@ -107,12 +109,14 @@ namespace LibraryAppServer.Controllers
             }
             return Ok(entries);
         }
-        
+
 
         //test
         private bool MovieExists(string id)
         {
-            return _context.Books.Any(e => e.Title == id);
+            return _context.Book.Any(e => e.Title == id);
         }
+
+
     }
 }

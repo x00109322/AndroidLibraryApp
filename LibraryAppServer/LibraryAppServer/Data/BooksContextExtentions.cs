@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace LibraryAppServer.Data
 {
-    public static class BooksContextExtensions
+    public static class BooksContextExtentions
     {
         public static void EnsureDatabaseSeeded(this BooksContext context)
         {
-            if (!context.Books.Any())
+            if (!context.Book.Any())
             {
                 context.AddRange(new Book[] {
                     new Book()
@@ -117,6 +117,5 @@ namespace LibraryAppServer.Data
                 context.SaveChanges();
             }
         }
-
     }
 }

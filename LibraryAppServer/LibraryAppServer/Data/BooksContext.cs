@@ -1,19 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using LibraryAppServer;
 
-namespace LibraryAppServer.Data
-{
     public class BooksContext : DbContext
     {
-        public BooksContext(DbContextOptions<BooksContext> options)
+        public BooksContext (DbContextOptions<BooksContext> options)
             : base(options)
         {
         }
 
-        public DbSet<LibraryAppServer.Book> Books { get; set; }
-
+        public DbSet<LibraryAppServer.Book> Book { get; set; }
     }
-}
