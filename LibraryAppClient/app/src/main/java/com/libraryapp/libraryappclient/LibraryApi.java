@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 
 public interface LibraryApi {
 
-    @GET("books")
+    @GET("api/books/all")
     Call<List<Book>> getBooks();
 }

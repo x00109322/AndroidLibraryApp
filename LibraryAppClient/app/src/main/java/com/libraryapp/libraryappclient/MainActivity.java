@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         textViewResult =findViewById(R.id.text_view_result);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("base URI of server here") // *** NEED TO UPDATE ONCE SERVER IS HOSTED ***
+                .baseUrl("https://libraryappserver.azurewebsites.net/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
