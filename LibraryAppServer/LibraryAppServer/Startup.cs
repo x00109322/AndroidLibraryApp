@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.EntityFrameworkCore;
+using LibraryAppServer.Data;
 
 namespace LibraryAppServer
 {
@@ -33,6 +35,9 @@ namespace LibraryAppServer
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
+
+            services.AddDbContext<BooksContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("BooksContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +63,14 @@ namespace LibraryAppServer
             });
 
             app.UseHttpsRedirection();
+
+            using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = scope.ServiceProvider.GetService<BooksContext>();
+                context.Database.Migrate();
+                context.EnsureDatabaseSeeded();
+
+            }
             app.UseMvc();
         }
     }
