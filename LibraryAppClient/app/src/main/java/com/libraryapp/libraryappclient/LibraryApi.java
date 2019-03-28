@@ -14,10 +14,19 @@ public interface LibraryApi {
     @GET("books/genre/{genre}")
     Call<List<Book>> getBooksByGenre(@Path("genre") String genre);
 
+    @GET("books/booksOrderedByRating")
+    Call<List<Book>> getBooksOrderedByRating();
+
+    @GET("books/booksOrderedByTitle")
+    Call<List<Book>> getBooksOrderedByTitle();
+
+    @GET("books/booksOrderedByAuthor")
+    Call<List<Book>> getBooksOrderedByAuthor();
+
+    @GET("books/booksOrderedByGenre")
+    Call<List<Book>> getBooksOrderedByGenre();
+
     // @GET("books/title/{title}")
-    // @GET("books/booksOrderedByRating")
-    // @GET("books/booksOrderedByTitle")
-    // @GET("books/booksOrderedByAuthor")
     // @GET("books/author/{author}")
     // @GET("books/rating/{rating}")
 }
