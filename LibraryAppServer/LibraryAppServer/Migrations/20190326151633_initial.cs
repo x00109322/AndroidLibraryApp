@@ -15,6 +15,7 @@ namespace LibraryAppServer.Migrations
                     Author = table.Column<string>(nullable: false),
                     Genre = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: true),
+                    BookCover = table.Column<string>(nullable: true),
                     Rating = table.Column<double>(nullable: false),
                     Stock = table.Column<int>(nullable: false)
                 },

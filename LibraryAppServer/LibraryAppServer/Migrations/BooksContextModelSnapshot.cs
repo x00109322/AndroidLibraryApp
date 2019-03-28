@@ -37,6 +37,8 @@ namespace LibraryAppServer.Migrations
                     b.Property<string>("Title")
                         .IsRequired();
 
+                    b.Property<string>("BookCover");
+
                     b.HasKey("ISBN");
 
                     b.ToTable("Book");
