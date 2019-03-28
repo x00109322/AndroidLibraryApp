@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Library App</string>
+    <string name="summary">Summary</string>
+    <string name="author">Author</string>
+    <string name="booktitle">BookTitle</string>
+    <string name="description">Description</string>
+    <string name="isbn">ISBN:</string>
+    <string name="bookcover">BookCover</string>
+    <string name="genre">Genre:</string>
+    <string name="check_out">Check Out</string>
 </resources>
