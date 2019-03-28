@@ -1,5 +1,19 @@
 <resources>
     <string name="app_name">Library App</string>
+
+    <string name="title">title</string>
+    <string name="genre">genre</string>
+    <string name="rating">rating</string>
+    <string name="order_by">Order By</string>
+    <string name="search">Search</string>
+
+    <string-array name="order_by_array">
+        <item>Title</item>
+        <item>Author</item>
+        <item>Genre</item>
+        <item>Rating</item>
+    </string-array>
+
     <string name="summary">Summary</string>
     <string name="author">Author</string>
     <string name="booktitle">BookTitle</string>
@@ -8,4 +22,5 @@
     <string name="bookcover">BookCover</string>
     <string name="genre">Genre:</string>
     <string name="check_out">Check Out</string>
+
 </resources>
