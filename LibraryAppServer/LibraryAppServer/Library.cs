@@ -16,6 +16,7 @@ namespace LibraryAppServer
         public string Author { get; set; }
         [Required]
         public string Genre { get; set; }
+        public string BookCover { get; set; }
         public string Description { get; set; }
         public double Rating { get; set; }
         public int Stock { get; set; }
