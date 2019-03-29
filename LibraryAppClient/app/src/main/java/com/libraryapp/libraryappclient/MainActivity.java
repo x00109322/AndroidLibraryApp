@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         orderBySpinner.setOnItemSelectedListener(this);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://libraryappserver.azurewebsites.net/api/")
+                .baseUrl("https://libraryappserver2019.azurewebsites.net/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
