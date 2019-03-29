@@ -20,7 +20,7 @@
     <string name="description">Description</string>
     <string name="isbn">ISBN:</string>
     <string name="bookcover">BookCover</string>
-    <string name="genre">Genre:</string>
+    <string name="genre_semi_colon">Genre:</string>
     <string name="check_out">Check Out</string>
 
 </resources>
