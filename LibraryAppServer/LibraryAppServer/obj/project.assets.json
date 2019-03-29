@@ -12647,11 +12647,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\iDugin\\Desktop\\AndriodLibraryApp\\LibraryAppServer\\LibraryAppServer\\LibraryAppServer.csproj",
+      "projectUniqueName": "C:\\Users\\iDugin\\Desktop\\AndroidLibraryApp\\LibraryAppServer\\LibraryAppServer\\LibraryAppServer.csproj",
       "projectName": "LibraryAppServer",
-      "projectPath": "C:\\Users\\iDugin\\Desktop\\AndriodLibraryApp\\LibraryAppServer\\LibraryAppServer\\LibraryAppServer.csproj",
+      "projectPath": "C:\\Users\\iDugin\\Desktop\\AndroidLibraryApp\\LibraryAppServer\\LibraryAppServer\\LibraryAppServer.csproj",
       "packagesPath": "C:\\Users\\iDugin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\iDugin\\Desktop\\AndriodLibraryApp\\LibraryAppServer\\LibraryAppServer\\obj\\",
+      "outputPath": "C:\\Users\\iDugin\\Desktop\\AndroidLibraryApp\\LibraryAppServer\\LibraryAppServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

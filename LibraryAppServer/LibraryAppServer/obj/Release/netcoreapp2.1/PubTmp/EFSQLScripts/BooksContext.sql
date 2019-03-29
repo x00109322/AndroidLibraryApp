@@ -17,6 +17,7 @@ BEGIN
         [Author] nvarchar(max) NOT NULL,
         [Genre] nvarchar(max) NOT NULL,
         [Description] nvarchar(max) NULL,
+        [BookCover] nvarchar(max) NULL,
         [Rating] float NOT NULL,
         [Stock] int NOT NULL,
         CONSTRAINT [PK_Book] PRIMARY KEY ([ISBN])
@@ -29,6 +30,31 @@ IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'2019
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
     VALUES (N'20190326151633_initial', N'2.1.4-rtm-31024');
+END;
+
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20190329000304_x00109322')
+BEGIN
+    CREATE TABLE [Books] (
+        [ISBN] nvarchar(450) NOT NULL,
+        [Title] nvarchar(max) NOT NULL,
+        [Author] nvarchar(max) NOT NULL,
+        [Genre] nvarchar(max) NOT NULL,
+        [BookCover] nvarchar(max) NULL,
+        [Description] nvarchar(max) NULL,
+        [Rating] float NOT NULL,
+        [Stock] int NOT NULL,
+        CONSTRAINT [PK_Books] PRIMARY KEY ([ISBN])
+    );
+END;
+
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20190329000304_x00109322')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20190329000304_x00109322', N'2.1.4-rtm-31024');
 END;
 
 GO

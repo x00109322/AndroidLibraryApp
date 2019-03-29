@@ -20,9 +20,6 @@ namespace LibraryAppServer
         public string Description { get; set; }
         public double Rating { get; set; }
         public int Stock { get; set; }
-
-        
-
         
     }
 }
