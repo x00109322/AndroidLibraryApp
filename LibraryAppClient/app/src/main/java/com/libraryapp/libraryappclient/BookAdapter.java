@@ -106,7 +106,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
                 for(Book book : bookListFull) {   // could use starts with rather than contains
-                    if(book.getTitle().toLowerCase().contains(filterPattern)) {
+                    if(book.getTitle().toLowerCase().contains(filterPattern) || book.getAuthor().toLowerCase().contains(filterPattern)) {
                         filteredList.add(book);
                     }
                 }
