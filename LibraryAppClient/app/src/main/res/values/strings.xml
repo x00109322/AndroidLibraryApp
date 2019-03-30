@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Library App</string>
 
-    <string name="title">title</string>
-    <string name="genre">genre</string>
-    <string name="rating">rating</string>
+    <string name="title">Title</string>
+    <string name="genre">Genre</string>
+    <string name="rating">Rating</string>
     <string name="order_by">Order By</string>
     <string name="search">Search</string>
 
