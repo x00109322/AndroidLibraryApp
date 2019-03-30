@@ -7,4 +7,31 @@
         android:title="Search"
         app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="android.support.v7.widget.SearchView"/>
+
+    <item android:id="@+id/optionOrderBy"
+        android:title="Order By"
+        app:showAsAction="never">
+
+        <menu>
+            <item android:id="@+id/orderByTitle"
+                android:title="@string/title"/>
+
+            <item android:id="@+id/orderByAuthor"
+                android:title="@string/author"/>
+
+            <item android:id="@+id/orderByGenre"
+                android:title="@string/genre"/>
+
+            <item android:id="@+id/orderByRating"
+                android:title="@string/rating"/>
+        </menu>
+    </item>
+
+    <item android:id="@+id/optionFilterBy"
+        android:title="Filter By"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/optionMoreInfo"
+        android:title="More Info"
+        app:showAsAction="never"/>
 </menu>
