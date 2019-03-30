@@ -1,9 +1,13 @@
 package com.libraryapp.libraryappclient;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,120 +21,64 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class MainActivity extends AppCompatActivity {
 
-    private TextView textViewResult;
-    private Spinner orderBySpinner;
     private LibraryApi libraryApi;
+    private RecyclerView bookRecyclerView;
+    private BookAdapter bookAdapter;
+    private RecyclerView.LayoutManager bookLayoutManager;
+    private ArrayList<Book> bookList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textViewResult =findViewById(R.id.text_view_result);
+        createBookList();
 
-        orderBySpinner = findViewById(R.id.order_by_spinner);
+    }
 
-        orderBySpinner.setOnItemSelectedListener(this);
-
+    public void createBookList() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://libraryappserver2019.azurewebsites.net/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
         libraryApi = retrofit.create(LibraryApi.class);
-
-        getBooks();
-    }
-
-    private void getBooks() {
         Call<List<Book>> call = libraryApi.getBooks();
-
         call.enqueue(new Callback<List<Book>>() {
             @Override
             public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
-                if(!response.isSuccessful()) {
-                    textViewResult.setText("Code: "+response.code());
+                if (!response.isSuccessful()) {
                     return;
                 }
 
-                List<Book> books = response.body();
-
-                for(Book book : books) {
-                    String content = "";
-                    content += "Title: " + book.getTitle() + "\n";
-                    content += "Author: " + book.getAuthor() + "\n";
-                    content += "Genre: " + book.getGenre() + "\n";
-                    content += "Rating: " + book.getRating() + "\n\n";
-
-                    textViewResult.append(content);
-                }
+                List<Book> booksToCast = response.body();
+                bookList = (ArrayList<Book>) booksToCast;
+                buildRecyclerView();
             }
 
             @Override
             public void onFailure(Call<List<Book>> call, Throwable t) {
-                textViewResult.setText(t.getMessage());
+                return;
             }
         });
     }
 
+    public void buildRecyclerView() {
+        bookRecyclerView = findViewById(R.id.bookRecyclerView);
+        bookRecyclerView.setHasFixedSize(true);
+        bookLayoutManager = new LinearLayoutManager(this);
+        bookAdapter = new BookAdapter(bookList);
 
-    public void getBooksByOrder(View v, String selectedOrder) {
-        Call<List<Book>> call = libraryApi.getBooksOrderedByTitle();
-        textViewResult = findViewById(R.id.text_view_result);
-
-        switch (selectedOrder) {
-            case "Author":
-                call = libraryApi.getBooksOrderedByAuthor();
-                break;
-            case "Genre":
-                call = libraryApi.getBooksOrderedByGenre();
-                break;
-            case "Rating":
-                call = libraryApi.getBooksOrderedByRating();
-                break;
-        }
-
-            call.enqueue(new Callback<List<Book>>() {
-
-                @Override
-            public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
-                if(!response.isSuccessful()) {
-                    textViewResult.setText("Code: "+response.code());
-                    return;
-                }
-
-                List<Book> books = response.body();
-
-                textViewResult.setText("");
-                for(Book book : books) {
-                    String content = "";
-                    content += "Title: " + book.getTitle() + "\n";
-                    content += "Author: " + book.getAuthor() + "\n";
-                    content += "Genre: " + book.getGenre() + "\n";
-                    content += "Rating: " + book.getRating() + "\n\n";
-
-                    textViewResult.append(content);
-                }
-            }
-
+        bookRecyclerView.setLayoutManager(bookLayoutManager);
+        bookRecyclerView.setAdapter(bookAdapter);
+        bookAdapter.setOnItemClickListener(new BookAdapter.OnItemClickListener() {
             @Override
-            public void onFailure(Call<List<Book>> call, Throwable t) {
-                textViewResult.setText(t.getMessage());
+            public void onItemClick(int position) {
+                //Intent intent = new Intent(this,SingleBookPage.class)
             }
         });
     }
 
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String choice = parent.getItemAtPosition(position).toString();
-        getBooksByOrder(view,choice);
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
 }
+

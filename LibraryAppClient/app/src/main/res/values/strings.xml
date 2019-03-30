@@ -23,4 +23,6 @@
     <string name="genre_semi_colon">Genre:</string>
     <string name="check_out">Check Out</string>
 
+    <string name="book_cover">https://images.gr-assets.com/books/1303597269l/10966007.jpg</string>
+
 </resources>
