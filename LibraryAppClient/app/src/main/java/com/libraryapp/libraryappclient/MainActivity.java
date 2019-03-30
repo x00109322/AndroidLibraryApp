@@ -33,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     private BookAdapter bookAdapter;
     private RecyclerView.LayoutManager bookLayoutManager;
     private ArrayList<Book> bookList = new ArrayList<>();
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl("https://libraryappserver2019.azurewebsites.net/api/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createBookList() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://libraryappserver2019.azurewebsites.net/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+
         libraryApi = retrofit.create(LibraryApi.class);
         Call<List<Book>> call = libraryApi.getBooks();
         call.enqueue(new Callback<List<Book>>() {
@@ -109,6 +110,65 @@ public class MainActivity extends AppCompatActivity {
         });
 
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.orderByTitle:
+                getBooksOrderedBy("Title");
+                return true;
+            case R.id.orderByAuthor:
+                getBooksOrderedBy("Author");
+                return true;
+            case R.id.orderByGenre:
+                getBooksOrderedBy("Genre");
+                return true;
+            case R.id.orderByRating:
+                getBooksOrderedBy("Rating");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void getBooksOrderedBy(String selectedOrder) {
+
+        libraryApi = retrofit.create(LibraryApi.class);
+        Call<List<Book>> call = libraryApi.getBooksOrderedByTitle();
+
+
+        switch (selectedOrder) {
+            case "Title":
+                call = libraryApi.getBooksOrderedByTitle();
+                break;
+            case "Author":
+                call = libraryApi.getBooksOrderedByAuthor();
+                break;
+            case "Genre":
+                call = libraryApi.getBooksOrderedByGenre();
+                break;
+            case "Rating":
+                call = libraryApi.getBooksOrderedByRating();
+                break;
+        }
+        call.enqueue(new Callback<List<Book>>() {
+            @Override
+            public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
+                if (!response.isSuccessful()) {
+                    return;
+                }
+
+                List<Book> booksToCast = response.body();
+                bookList = (ArrayList<Book>) booksToCast;
+                buildRecyclerView();
+            }
+
+            @Override
+            public void onFailure(Call<List<Book>> call, Throwable t) {
+                return;
+            }
+        });
     }
 }
 
