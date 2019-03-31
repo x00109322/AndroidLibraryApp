@@ -11,9 +11,8 @@ public class Book {
     private double rating;
     private int stock;
 
-    public Book(String title, String author) {
-        this.title = title;
-        this.author = author;
+    public Book(String isbn) {
+        this.isbn = isbn;
     }
 
     public String getBookCover() {
@@ -39,5 +38,9 @@ public class Book {
     }
     public int getStock() {
         return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 }

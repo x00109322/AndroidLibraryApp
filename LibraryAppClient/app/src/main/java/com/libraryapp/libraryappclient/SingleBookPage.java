@@ -16,10 +16,23 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class SingleBookPage extends AppCompatActivity {
 
     private Button checkOutButton;
     private String title;
+    private String isbn;
+    private LibraryApi libraryApi;
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl("https://libraryappserver2019.azurewebsites.net/api/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,14 +44,16 @@ public class SingleBookPage extends AppCompatActivity {
         checkOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                checkOutBook(isbn);
                 showCheckOutToast(title);
+
             }
         });
         Intent intent = getIntent();
         title = intent.getStringExtra("title");
         String author = intent.getStringExtra("author");
         String genre = intent.getStringExtra("genre");
-        String isbn = intent.getStringExtra("isbn");
+        isbn = intent.getStringExtra("isbn");
         String cover = intent.getStringExtra("book_cover_url");
         double rating = intent.getDoubleExtra("rating",0.0);
         String description = intent.getStringExtra("description");
@@ -72,6 +87,7 @@ public class SingleBookPage extends AppCompatActivity {
     }
 
     public void showCheckOutToast(String title) {
+
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.check_out_toast_layout,(ViewGroup) findViewById(R.id.checkOutToastRoot));
 
@@ -84,5 +100,37 @@ public class SingleBookPage extends AppCompatActivity {
         toast.setView(layout);
 
         toast.show();
+
+
+    }
+
+    public void checkOutBook(String isbn) {
+
+        libraryApi = retrofit.create(LibraryApi.class);
+
+        final TextView updateStock = findViewById(R.id.stockValue);
+        Book book = new Book(isbn);
+        int currentStock = book.getStock();
+        final int updatedStock = currentStock-1;
+        book.setStock(updatedStock);
+
+        Call<Book> call = libraryApi.updateBookStock(isbn,book);
+
+        call.enqueue(new Callback<Book>() {
+            @Override
+            public void onResponse(Call<Book> call, Response<Book> response) {
+                if(!response.isSuccessful()) {
+                    updateStock.setText("Code: " + response.code());
+                }
+
+                updateStock.setText(updatedStock);
+            }
+
+            @Override
+            public void onFailure(Call<Book> call, Throwable t) {
+                updateStock.setText(t.getMessage());
+            }
+        });
+
     }
 }
