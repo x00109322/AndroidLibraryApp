@@ -29,6 +29,17 @@ namespace LibraryAppServer.Controllers
             return entries;
         }
 
+        // Update stock of book when checked out
+        [HttpPatch("checkoutBook/{isbn}")]
+        public IActionResult UpdateStock(string isbn,[FromBody]Book bookIn)
+        {
+            Book book = _context.Book.FirstOrDefault(b => b.ISBN  == isbn);
+            int oldStock = book.Stock;
+            int newStock = oldStock - 1;
+            book.Stock = newStock;
+            _context.Update(book);
+            return Ok(book);
+        }
 
         // get all matching books with matching title - should only be one
 
