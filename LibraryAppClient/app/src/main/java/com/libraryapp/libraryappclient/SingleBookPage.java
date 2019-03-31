@@ -49,9 +49,7 @@ public class SingleBookPage extends AppCompatActivity {
         RatingBar ratingBar = findViewById(R.id.ratingBar);
         ratingBar.setRating((float)rating);
 
-
-
-
-
+        TextView textViewStock = findViewById(R.id.stock);
+        textViewStock.setText("Stock: " + stock);
     }
 }
