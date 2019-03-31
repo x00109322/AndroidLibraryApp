@@ -42,12 +42,16 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         public ImageView bookImageView;
         public TextView bookTextViewTitle;
         public TextView bookTextViewAuthor;
+        public TextView bookTextViewGenre;
+        public TextView bookTextViewRating;
 
         public BookViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
             bookImageView = itemView.findViewById(R.id.cardBookCover);
             bookTextViewTitle = itemView.findViewById(R.id.cardBookTitle);
             bookTextViewAuthor = itemView.findViewById(R.id.cardBookAuthor);
+            bookTextViewGenre = itemView.findViewById(R.id.cardBookGenre);
+            bookTextViewRating = itemView.findViewById(R.id.cardBookRating);
 
             itemView.setOnClickListener(new View.OnClickListener() {
 
@@ -86,6 +90,9 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         Picasso.get().load(currentBook.getBookCover()).into(bookViewHolder.bookImageView);
         bookViewHolder.bookTextViewTitle.setText(currentBook.getTitle());
         bookViewHolder.bookTextViewAuthor.setText(currentBook.getAuthor());
+        bookViewHolder.bookTextViewGenre.setText(currentBook.getGenre());
+        String rating = Double.toString(currentBook.getRating());
+        bookViewHolder.bookTextViewRating.setText(rating);
 
 
     }
@@ -110,7 +117,9 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
                 for(Book book : bookListFull) {   // could use starts with rather than contains
-                    if(book.getTitle().toLowerCase().contains(filterPattern) || book.getAuthor().toLowerCase().contains(filterPattern)) {
+                    if(book.getTitle().toLowerCase().contains(filterPattern) ||
+                            book.getAuthor().toLowerCase().contains(filterPattern) ||
+                            book.getGenre().toLowerCase().contains(filterPattern)) {
                         filteredList.add(book);
                     }
                 }

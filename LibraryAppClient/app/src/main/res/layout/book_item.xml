@@ -17,7 +17,7 @@
             android:id="@+id/cardBookCover"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:contentDescription="Book Cover"
+            android:contentDescription="@string/bookcover"
             android:padding="2dp"
             android:src="@mipmap/ic_launcher"/>
 
@@ -25,23 +25,54 @@
             android:id="@+id/cardBookTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Line 1"
+            android:text="@string/title"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:layout_marginRight="100dp"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/cardBookCover" />
+            android:layout_toEndOf="@+id/cardBookCover"
+            android:layout_toRightOf="@+id/cardBookCover"/>
 
         <TextView
             android:id="@+id/cardBookAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Line 2"
+            android:text="@string/author"
             android:textColor="@android:color/black"
             android:textSize="15sp"
             android:layout_below="@+id/cardBookTitle"
             android:layout_toEndOf="@+id/cardBookCover"
-            android:layout_marginStart="8dp"/>
+            android:layout_toRightOf="@+id/cardBookCover"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_toLeftOf="@id/cardBookRating"/>
+
+        <TextView
+            android:id="@+id/cardBookGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/genre"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="15sp"
+            android:layout_below="@+id/cardBookAuthor"
+            android:layout_toEndOf="@+id/cardBookCover"
+            android:layout_toRightOf="@+id/cardBookCover"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            />
+
+        <TextView
+            android:id="@+id/cardBookRating"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="@string/rating"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginStart="320dp"
+            android:layout_marginLeft="320dp"
+            android:layout_centerVertical="true"/>
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>
