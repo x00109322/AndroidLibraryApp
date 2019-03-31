@@ -49,6 +49,7 @@
     <string name="paula_hawkins">Paula Hawkins</string>
     <string name="andrew_hodges">Andrew Hodges</string>
     <string name="gillian_flynn">Gillian Flynn</string>
+    <string name="custom_toast_default">This is a custom Toast</string>
 
 
 </resources>

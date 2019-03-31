@@ -128,8 +128,8 @@
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:paddingTop="12dp"
-        android:layout_alignBottom="@+id/CheckOut"
-        android:layout_alignTop="@+id/CheckOut"
+        android:layout_alignBottom="@+id/checkOutButton"
+        android:layout_alignTop="@+id/checkOutButton"
         android:layout_below="@+id/ratingBar"
         android:text="@string/stock"
         android:textColor="@android:color/black"/>
@@ -143,12 +143,12 @@
         android:layout_below="@+id/ratingBar"
         android:paddingLeft="5dp"
         android:paddingTop="12dp"
-        android:layout_alignBottom="@+id/CheckOut"
-        android:layout_alignTop="@+id/CheckOut"
+        android:layout_alignBottom="@+id/checkOutButton"
+        android:layout_alignTop="@+id/checkOutButton"
         android:text="@string/stockDefault" />
 
     <Button
-        android:id="@+id/CheckOut"
+        android:id="@+id/checkOutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ratingBar"
