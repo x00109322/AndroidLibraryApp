@@ -22,8 +22,13 @@
     <string name="bookcover">BookCover</string>
     <string name="genre_semi_colon">Genre:</string>
     <string name="check_out">Check Out</string>
-
-    <string name="book_cover">https://images.gr-assets.com/books/1303597269l/10966007.jpg</string>
     <string name="textview">TextView</string>
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="irish">Irish</string>
+    <string name="genreDefault">Horror</string>
+    <string name="isbnDefault">00000000</string>
+    <string name="stock">Stock:</string>
+    <string name="stockDefault">0</string>
 
 </resources>
