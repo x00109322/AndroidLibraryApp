@@ -1,6 +1,7 @@
 package com.libraryapp.libraryappclient;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -49,8 +50,11 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             bookTextViewAuthor = itemView.findViewById(R.id.cardBookAuthor);
 
             itemView.setOnClickListener(new View.OnClickListener() {
+
                 @Override
                 public void onClick(View v) {
+
+                    Intent intent = new Intent(v.getContext(),SingleBookPage.class);
                     if (listener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
