@@ -18,6 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SingleBookPage"></activity>
+        <activity android:name=".SingleBookPage"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 </manifest>
