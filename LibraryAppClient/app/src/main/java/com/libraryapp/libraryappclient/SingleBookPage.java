@@ -3,6 +3,7 @@ package com.libraryapp.libraryappclient;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -27,8 +28,8 @@ public class SingleBookPage extends AppCompatActivity {
         String cover = intent.getStringExtra("book_cover_url");
         double rating = intent.getDoubleExtra("rating",0.0);
         String description = intent.getStringExtra("description");
-        int stock = intent.getIntExtra("stock",0);
-
+        int stockInt = intent.getIntExtra("stock",0);
+        String stock = Integer.toString(stockInt);
 
         TextView textViewTitle = findViewById(R.id.BookTitle);
         textViewTitle.setText(title);
@@ -36,14 +37,15 @@ public class SingleBookPage extends AppCompatActivity {
         TextView textViewAuthor = findViewById(R.id.Author);
         textViewAuthor.setText(author);
 
-        TextView textViewGenre = findViewById(R.id.Genre);
-        textViewGenre.setText("Genre: "+ genre);
+        TextView textViewGenre = findViewById(R.id.GenreValue);
+        textViewGenre.setText(genre);
 
-        TextView textViewISBN = findViewById(R.id.ISBN);
-        textViewISBN.setText("ISBN: " + isbn);
+        TextView textViewISBN = findViewById(R.id.ISBNValue);
+        textViewISBN.setText(isbn);
 
         TextView textViewDescription = findViewById(R.id.Description);
         textViewDescription.setText(description);
+        textViewDescription.setMovementMethod(new ScrollingMovementMethod());
 
         ImageView imageViewBookCover = findViewById(R.id.imageView);
         Picasso.get().load(cover).into(imageViewBookCover);
@@ -51,7 +53,7 @@ public class SingleBookPage extends AppCompatActivity {
         RatingBar ratingBar = findViewById(R.id.ratingBar);
         ratingBar.setRating((float)rating);
 
-        TextView textViewStock = findViewById(R.id.stock);
-        textViewStock.setText("Stock: " + stock);
+        TextView textViewStock = findViewById(R.id.stockValue);
+        textViewStock.setText(stock);
     }
 }

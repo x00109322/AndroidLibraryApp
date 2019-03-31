@@ -4,12 +4,12 @@
 
     <item android:id="@+id/action_search"
         android:icon="@drawable/ic_search"
-        android:title="Search"
+        android:title="@string/search"
         app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="android.support.v7.widget.SearchView"/>
 
     <item android:id="@+id/optionOrderBy"
-        android:title="Order By"
+        android:title="@string/order_by"
         app:showAsAction="never">
 
         <menu>
@@ -28,10 +28,34 @@
     </item>
 
     <item android:id="@+id/optionFilterBy"
-        android:title="Filter By"
-        app:showAsAction="never"/>
+        android:title=""
+        app:showAsAction="never">
+        <menu>
+            <item android:id="@+id/FilterByAuthor"
+                android:title="@string/author">
+                <menu>
+                    <!-- create list from api-->
+                </menu>
+            </item>
+            <item android:id="@+id/FilterByGenre"
+                android:title="@string/genre">
+                <menu>
+                    <!-- create list from api-->
+                </menu>
+            </item>
+        </menu>
+    </item>
 
-    <item android:id="@+id/optionMoreInfo"
-        android:title="More Info"
-        app:showAsAction="never"/>
+    <item android:id="@+id/optionLanguages"
+        android:title="@string/language"
+        app:showAsAction="never">
+
+        <menu>
+            <item android:id="@+id/languageEnglish"
+                android:title="@string/english"/>
+
+            <item android:id="@+id/languageIrish"
+                android:title="@string/irish"/>
+        </menu>
+    </item>
 </menu>
