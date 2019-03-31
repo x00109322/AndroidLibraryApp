@@ -81,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
         bookAdapter.setOnItemClickListener(new BookAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                //Intent intent = new Intent(this,SingleBookPage.class)
+                openSingleBookView(position);
+
             }
         });
     }
@@ -169,6 +170,21 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
         });
+    }
+
+    public void openSingleBookView(int position) {
+        Book book = bookList.get(position);
+        Intent intent = new Intent(this,SingleBookPage.class);
+        intent.putExtra("title",book.getTitle());
+        intent.putExtra("author",book.getAuthor());
+        intent.putExtra("genre",book.getGenre());
+        intent.putExtra("isbn",book.getIsbn());
+        intent.putExtra("book_cover_url",book.getBookCover());
+        intent.putExtra("rating",book.getRating());
+        intent.putExtra("stock",book.getStock());
+        intent.putExtra("description",book.getDescription());
+
+        startActivity(intent);
     }
 }
 

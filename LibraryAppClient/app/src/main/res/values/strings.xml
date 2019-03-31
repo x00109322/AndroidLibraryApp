@@ -24,5 +24,6 @@
     <string name="check_out">Check Out</string>
 
     <string name="book_cover">https://images.gr-assets.com/books/1303597269l/10966007.jpg</string>
+    <string name="textview">TextView</string>
 
 </resources>
