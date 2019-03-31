@@ -183,6 +183,18 @@ public class MainActivity extends AppCompatActivity {
                 getBooksFilteredByAuthor("Paula Hawkins");
             case R.id.filterByStephenKing:
                 getBooksFilteredByAuthor("Stephen King");
+            case R.id.languageEnglish:
+                Locale localeEnglish = new Locale("en");
+                Locale.setDefault(localeEnglish);
+                Configuration config = new Configuration();
+                config.locale = localeEnglish;
+                getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
+            case R.id.languageIrish:
+                Locale localeIrish = new Locale("ga_IE");
+                Locale.setDefault(localeIrish);
+                Configuration configuration = new Configuration();
+                configuration.locale = localeIrish;
+                getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
             default:
                 return super.onOptionsItemSelected(item);
         }
