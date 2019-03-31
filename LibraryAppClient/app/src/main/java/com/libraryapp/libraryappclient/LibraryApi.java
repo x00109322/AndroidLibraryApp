@@ -14,6 +14,9 @@ public interface LibraryApi {
     @GET("books/genre/{genre}")
     Call<List<Book>> getBooksByGenre(@Path("genre") String genre);
 
+    @GET("books/author/{author}")
+    Call<List<Book>> getBooksByAuthor(@Path("author") String author);
+
     @GET("books/booksOrderedByRating")
     Call<List<Book>> getBooksOrderedByRating();
 
@@ -25,8 +28,4 @@ public interface LibraryApi {
 
     @GET("books/booksOrderedByGenre")
     Call<List<Book>> getBooksOrderedByGenre();
-
-    // @GET("books/title/{title}")
-    // @GET("books/author/{author}")
-    // @GET("books/rating/{rating}")
 }

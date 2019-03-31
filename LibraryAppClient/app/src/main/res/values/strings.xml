@@ -30,5 +30,25 @@
     <string name="isbnDefault">00000000</string>
     <string name="stock">Stock:</string>
     <string name="stockDefault">0</string>
+    <string name="novel">Novel</string>
+    <string name="fantasy_fiction">Fantasy Fiction</string>
+    <string name="dark_fantasy">Dark Fantasy</string>
+    <string name="adventure">Adventure</string>
+    <string name="thriller">Thriller</string>
+    <string name="humour">Humour</string>
+    <string name="autobiography">Autobiography</string>
+    <string name="biography">Biography</string>
+    <string name="filterBy">Filter By</string>
+    <string name="stephen_king">Stephen King</string>
+    <string name="j_k_rowling">J.K. Rowling</string>
+    <string name="kathryn_stockett">Kathryn Stockett</string>
+    <string name="andy_weir">Andy Weir</string>
+    <string name="cormac_mccarthy">Cormac McCarthy</string>
+    <string name="emer_mclysaght_and_sarah_breen">Emer McLysaght and Sarah Breen</string>
+    <string name="michelle_obama">Michelle Obama</string>
+    <string name="paula_hawkins">Paula Hawkins</string>
+    <string name="andrew_hodges">Andrew Hodges</string>
+    <string name="gillian_flynn">Gillian Flynn</string>
+
 
 </resources>
