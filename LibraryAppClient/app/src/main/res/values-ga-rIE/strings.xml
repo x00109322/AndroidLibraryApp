@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">App Leabharlainne</string>
+    <string name="title">Teideal</string>
+    <string name="genre">Seánra</string>
+    <string name="rating">Rátáil</string>
+    <string name="order_by">Ordú De réir</string>
+    <string name="search">Cuardaigh</string>
+    <string name="summary">Achoimre</string>
+    <string name="author">Údar</string>
+    <string name="booktitle">Teideal Leabhar</string>
+    <string name="description">Cur síos</string>
+    <string name="bookcover">Clúdach Leabhair</string>
+    <string name="genre_semi_colon">Seánra:</string>
+    <string name="check_out">" Seiceáil Amach"</string>
+    <string name="textview">amharc téacs</string>
+    <string name="english">Teanga</string>
+    <string name="language">" Teanga"</string>
+    <string name="genreDefault">Horror</string>
+    <string name="irish">" Béarla"</string>
+    <string name="stock">Stoc:</string>
+    <string name="novel">Úrscéal</string>
+    <string name="fantasy_fiction">Ficsean Ficsean</string>
+    <string name="dark_fantasy">" Fantasy Dark"</string>
+    <string name="thriller">Thriller</string>
+    <string name="adventure">" Eachtraíochta"</string>
+    <string name="humour">Greann</string>
+    <string name="autobiography">" Dírbheathaisnéis"</string>
+    <string name="biography">Beathaisnéis</string>
+    <string name="filterBy">" Scagaire Faoi"</string>
+    <string name="custom_toast_default">Is Tósta saincheaptha é seo</string>
+    <string name="you_checked_out">" Sheiceáil tú:"</string>
+</resources>

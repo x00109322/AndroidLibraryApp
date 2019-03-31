@@ -18,7 +18,7 @@
     <string name="author">Author</string>
     <string name="booktitle">BookTitle</string>
     <string name="description">Description</string>
-    <string name="isbn">ISBN:</string>
+    <string name="isbn" translatable="false">ISBN:</string>
     <string name="bookcover">BookCover</string>
     <string name="genre_semi_colon">Genre:</string>
     <string name="check_out">Check Out</string>
@@ -27,9 +27,9 @@
     <string name="english">English</string>
     <string name="irish">Irish</string>
     <string name="genreDefault">Horror</string>
-    <string name="isbnDefault">00000000</string>
+    <string name="isbnDefault" translatable="false">00000000</string>
     <string name="stock">Stock:</string>
-    <string name="stockDefault">0</string>
+    <string name="stockDefault" translatable="false">0</string>
     <string name="novel">Novel</string>
     <string name="fantasy_fiction">Fantasy Fiction</string>
     <string name="dark_fantasy">Dark Fantasy</string>
@@ -39,17 +39,18 @@
     <string name="autobiography">Autobiography</string>
     <string name="biography">Biography</string>
     <string name="filterBy">Filter By</string>
-    <string name="stephen_king">Stephen King</string>
-    <string name="j_k_rowling">J.K. Rowling</string>
-    <string name="kathryn_stockett">Kathryn Stockett</string>
-    <string name="andy_weir">Andy Weir</string>
-    <string name="cormac_mccarthy">Cormac McCarthy</string>
-    <string name="emer_mclysaght_and_sarah_breen">Emer McLysaght and Sarah Breen</string>
-    <string name="michelle_obama">Michelle Obama</string>
-    <string name="paula_hawkins">Paula Hawkins</string>
-    <string name="andrew_hodges">Andrew Hodges</string>
-    <string name="gillian_flynn">Gillian Flynn</string>
+    <string name="stephen_king" translatable="false">Stephen King</string>
+    <string name="j_k_rowling" translatable="false">J.K. Rowling</string>
+    <string name="kathryn_stockett" translatable="false">Kathryn Stockett</string>
+    <string name="andy_weir" translatable="false">Andy Weir</string>
+    <string name="cormac_mccarthy" translatable="false">Cormac McCarthy</string>
+    <string name="emer_mclysaght_and_sarah_breen" translatable="false">Emer McLysaght and Sarah Breen</string>
+    <string name="michelle_obama" translatable="false">Michelle Obama</string>
+    <string name="paula_hawkins" translatable="false">Paula Hawkins</string>
+    <string name="andrew_hodges" translatable="false">Andrew Hodges</string>
+    <string name="gillian_flynn" translatable="false">Gillian Flynn</string>
     <string name="custom_toast_default">This is a custom Toast</string>
-
+    <string name="you_checked_out">You checked out:</string>
+    <string name="code">Code:</string>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.libraryapp.libraryappclient;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -273,15 +275,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void openSingleBookView(int position) {
         Book book = bookList.get(position);
-        Intent intent = new Intent(this,SingleBookPage.class);
-        intent.putExtra("title",book.getTitle());
-        intent.putExtra("author",book.getAuthor());
-        intent.putExtra("genre",book.getGenre());
-        intent.putExtra("isbn",book.getIsbn());
-        intent.putExtra("book_cover_url",book.getBookCover());
-        intent.putExtra("rating",book.getRating());
-        intent.putExtra("stock",book.getStock());
-        intent.putExtra("description",book.getDescription());
+        Intent intent = new Intent(this, SingleBookPage.class);
+        intent.putExtra("title", book.getTitle());
+        intent.putExtra("author", book.getAuthor());
+        intent.putExtra("genre", book.getGenre());
+        intent.putExtra("isbn", book.getIsbn());
+        intent.putExtra("book_cover_url", book.getBookCover());
+        intent.putExtra("rating", book.getRating());
+        intent.putExtra("stock", book.getStock());
+        intent.putExtra("description", book.getDescription());
 
         startActivity(intent);
     }

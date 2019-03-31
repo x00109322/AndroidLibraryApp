@@ -44,7 +44,7 @@ public class SingleBookPage extends AppCompatActivity {
         checkOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkOutBook(isbn);
+                //checkOutBook(isbn);
                 showCheckOutToast(title);
 
             }
@@ -92,7 +92,8 @@ public class SingleBookPage extends AppCompatActivity {
         View layout = inflater.inflate(R.layout.check_out_toast_layout,(ViewGroup) findViewById(R.id.checkOutToastRoot));
 
         TextView toastText = layout.findViewById(R.id.checkOutToastText);
-        toastText.setText("You checked out: "+title);
+        String toastMessage = R.string.you_checked_out + title;
+        toastText.setText(toastMessage);
 
         Toast toast = new Toast(getApplicationContext());
         toast.setGravity(Gravity.CENTER,0,0);
