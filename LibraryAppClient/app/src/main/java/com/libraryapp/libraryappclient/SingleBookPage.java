@@ -91,9 +91,8 @@ public class SingleBookPage extends AppCompatActivity {
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.check_out_toast_layout,(ViewGroup) findViewById(R.id.checkOutToastRoot));
 
-        TextView toastText = layout.findViewById(R.id.checkOutToastText);
-        String toastMessage = R.string.you_checked_out + title;
-        toastText.setText(toastMessage);
+        TextView toastText = layout.findViewById(R.id.checkOutToastTitle);
+        toastText.setText(title);
 
         Toast toast = new Toast(getApplicationContext());
         toast.setGravity(Gravity.CENTER,0,0);

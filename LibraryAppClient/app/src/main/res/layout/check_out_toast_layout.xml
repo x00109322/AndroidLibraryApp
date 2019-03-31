@@ -20,8 +20,17 @@
         android:id="@+id/checkOutToastText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/custom_toast_default"
+        android:text="@string/you_checked_out"
         android:textColor="@android:color/white"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/checkOutToastTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:textColor="@android:color/white"
+        android:paddingLeft="5dp"
         android:textSize="16sp"/>
 
 </LinearLayout>
