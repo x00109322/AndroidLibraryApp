@@ -28,19 +28,71 @@
     </item>
 
     <item android:id="@+id/optionFilterBy"
-        android:title=""
+        android:title="@string/filterBy"
         app:showAsAction="never">
         <menu>
             <item android:id="@+id/FilterByAuthor"
                 android:title="@string/author">
                 <menu>
                     <!-- create list from api-->
+                    <item android:id="@+id/filterByStephenKing"
+                        android:title="@string/stephen_king"/>
+
+                    <item android:id="@+id/filterByJ.K.Rowling"
+                        android:title="@string/j_k_rowling"/>
+
+                    <item android:id="@+id/filterByKathrynStockett"
+                        android:title="@string/kathryn_stockett"/>
+
+                    <item android:id="@+id/filterByAndyWeir"
+                        android:title="@string/andy_weir"/>
+
+                    <item android:id="@+id/filterByCormacMcCarthy"
+                        android:title="@string/cormac_mccarthy"/>
+
+                    <item android:id="@+id/filterByEmerMcLysaghtandSarahBreen"
+                        android:title="@string/emer_mclysaght_and_sarah_breen"/>
+
+                    <item android:id="@+id/filterByMichelleObama"
+                        android:title="@string/michelle_obama"/>
+
+                    <item android:id="@+id/filterByPaulaHawkins"
+                        android:title="@string/paula_hawkins"/>
+
+                    <item android:id="@+id/filterByAndrewHodges"
+                        android:title="@string/andrew_hodges"/>
+
+                    <item android:id="@+id/filterByGillianFlynn"
+                        android:title="@string/gillian_flynn"/>
                 </menu>
             </item>
             <item android:id="@+id/FilterByGenre"
                 android:title="@string/genre">
                 <menu>
                     <!-- create list from api-->
+                    <item android:id="@+id/filterByNovel"
+                        android:title="@string/novel"/>
+
+                    <item android:id="@+id/filterByFantasyFiction"
+                        android:title="@string/fantasy_fiction"/>
+
+                    <item android:id="@+id/filterByDarkFantasy"
+                        android:title="@string/dark_fantasy"/>
+
+                    <item android:id="@+id/filterByAdventure"
+                        android:title="@string/adventure"/>
+
+                    <item android:id="@+id/filterByTriller"
+                        android:title="@string/thriller"/>
+
+                    <item android:id="@+id/filterByHumour"
+                        android:title="@string/humour"/>
+
+                    <item android:id="@+id/filterByAutobiography"
+                        android:title="@string/autobiography"/>
+
+                    <item android:id="@+id/filterByBiography"
+                        android:title="@string/biography"/>
                 </menu>
             </item>
         </menu>

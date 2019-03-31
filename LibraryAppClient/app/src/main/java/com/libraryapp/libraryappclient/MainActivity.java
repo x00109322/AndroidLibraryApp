@@ -95,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
 
+//        for(int i=0; i < bookList.size(); i++) {
+//            menu.add(R.id.FilterByGenre,(i+1),Menu.NONE,bookList.get(i).getGenre());
+//        }
+
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -115,7 +119,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+
         switch (item.getItemId()) {
+            // Order book by
             case R.id.orderByTitle:
                 getBooksOrderedBy("Title");
                 return true;
@@ -128,6 +135,52 @@ public class MainActivity extends AppCompatActivity {
             case R.id.orderByRating:
                 getBooksOrderedBy("Rating");
                 return true;
+            // Filter books by Genre
+            case R.id.filterByNovel:
+                getBooksFilteredByGenre("Novel");
+                return true;
+            case R.id.filterByAdventure:
+                getBooksFilteredByGenre("Adventure");
+                return true;
+            case R.id.filterByAutobiography:
+                getBooksFilteredByGenre("AutoBiography");
+                return true;
+            case R.id.filterByBiography:
+                getBooksFilteredByGenre("Biography");
+                return true;
+            case R.id.filterByDarkFantasy:
+                getBooksFilteredByGenre("Dark Fantasy");
+                return true;
+            case R.id.filterByHumour:
+                getBooksFilteredByGenre("Humour");
+                return true;
+            case R.id.filterByTriller:
+                getBooksFilteredByGenre("Thriller");
+                return true;
+            case R.id.filterByFantasyFiction:
+                getBooksFilteredByGenre("Fantasy Ficton");
+                return true;
+            // Filter books by Author
+            case R.id.filterByAndrewHodges:
+                getBooksFilteredByAuthor(" Andrew Hodges");
+            case R.id.filterByAndyWeir:
+                getBooksFilteredByAuthor("Andy Weir");
+            case R.id.filterByCormacMcCarthy:
+                getBooksFilteredByAuthor("Cormac McCarthy");
+            case R.id.filterByEmerMcLysaghtandSarahBreen:
+                getBooksFilteredByAuthor("Emer McLysaght and Sarah Breen");
+            case R.id.filterByGillianFlynn:
+                getBooksFilteredByAuthor("Gillian Flynn");
+            case R.id.filterByJ_K_Rowling:
+                getBooksFilteredByAuthor("J.K. Rowling");
+            case R.id.filterByKathrynStockett:
+                getBooksFilteredByAuthor("Kathryn Stockett");
+            case R.id.filterByMichelleObama:
+                getBooksFilteredByAuthor("Michelle Obama");
+            case R.id.filterByPaulaHawkins:
+                getBooksFilteredByAuthor("Paula Hawkins");
+            case R.id.filterByStephenKing:
+                getBooksFilteredByAuthor("Stephen King");
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -137,7 +190,6 @@ public class MainActivity extends AppCompatActivity {
 
         libraryApi = retrofit.create(LibraryApi.class);
         Call<List<Book>> call = libraryApi.getBooksOrderedByTitle();
-
 
         switch (selectedOrder) {
             case "Title":
@@ -153,6 +205,53 @@ public class MainActivity extends AppCompatActivity {
                 call = libraryApi.getBooksOrderedByRating();
                 break;
         }
+        call.enqueue(new Callback<List<Book>>() {
+            @Override
+            public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
+                if (!response.isSuccessful()) {
+                    return;
+                }
+
+                List<Book> booksToCast = response.body();
+                bookList = (ArrayList<Book>) booksToCast;
+                buildRecyclerView();
+            }
+
+            @Override
+            public void onFailure(Call<List<Book>> call, Throwable t) {
+                return;
+            }
+        });
+    }
+
+    public void getBooksFilteredByGenre(String selectedOrder) {
+
+        libraryApi = retrofit.create(LibraryApi.class);
+        Call<List<Book>> call = libraryApi.getBooksByGenre(selectedOrder);
+        call.enqueue(new Callback<List<Book>>() {
+            @Override
+            public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
+                if (!response.isSuccessful()) {
+                    return;
+                }
+
+                List<Book> booksToCast = response.body();
+                bookList = (ArrayList<Book>) booksToCast;
+                buildRecyclerView();
+            }
+
+            @Override
+            public void onFailure(Call<List<Book>> call, Throwable t) {
+                return;
+            }
+        });
+    }
+
+    public void getBooksFilteredByAuthor(String selectedOrder) {
+
+        libraryApi = retrofit.create(LibraryApi.class);
+        Call<List<Book>> call = libraryApi.getBooksByAuthor(selectedOrder);
+
         call.enqueue(new Callback<List<Book>>() {
             @Override
             public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
