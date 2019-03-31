@@ -16,6 +16,8 @@ public class SingleBookPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_book_page);
         setTitle("Full Details");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");
